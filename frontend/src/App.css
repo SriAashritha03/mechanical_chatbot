@@ -1,38 +1,225 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app-shell {
   min-height: 100vh;
+  padding: 32px;
+  background:
+    radial-gradient(circle at top left, rgba(255, 198, 0, 0.22), transparent 32%),
+    radial-gradient(circle at top right, rgba(29, 78, 216, 0.18), transparent 28%),
+    linear-gradient(160deg, #08111f 0%, #0f1a2e 55%, #15243d 100%);
+  color: #eff4ff;
+}
+
+.chat-app {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.95fr) minmax(320px, 1.05fr);
+  gap: 24px;
+}
+
+.hero-panel,
+.conversation-panel {
+  background: rgba(8, 15, 28, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  box-shadow: 0 24px 80px rgba(2, 8, 20, 0.45);
+  backdrop-filter: blur(18px);
+}
+
+.hero-panel {
+  padding: 40px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #7dd3fc;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.hero-panel h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 5vw, 4.6rem);
+  line-height: 0.97;
+  letter-spacing: -0.05em;
+  max-width: 10ch;
+}
+
+.hero-copy {
+  max-width: 55ch;
+  margin: 20px 0 0;
+  color: rgba(239, 244, 255, 0.78);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.suggestion-row {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.suggestion-chip {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: #eff4ff;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font: inherit;
+  cursor: pointer;
+  transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
+}
+
+.suggestion-chip:hover,
+.suggestion-chip:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(125, 211, 252, 0.55);
+  background: rgba(125, 211, 252, 0.12);
+}
+
+.conversation-panel {
+  min-height: 640px;
+  padding: 20px;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.message-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 4px;
+  overflow: auto;
+}
+
+.message {
+  max-width: 92%;
+  padding: 16px 18px;
+  border-radius: 20px;
+  line-height: 1.65;
+}
+
+.message p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.message-role {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(239, 244, 255, 0.58);
+}
+
+.message.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #f59e0b, #facc15);
+  color: #101828;
+}
+
+.message.assistant {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.composer {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.composer textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 120px;
+  box-sizing: border-box;
+  padding: 16px 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(3, 8, 18, 0.75);
+  color: #eff4ff;
+  font: inherit;
+  line-height: 1.6;
+}
+
+.composer textarea::placeholder {
+  color: rgba(239, 244, 255, 0.38);
+}
+
+.composer textarea:focus {
+  outline: 2px solid rgba(125, 211, 252, 0.8);
+  outline-offset: 2px;
+}
+
+.composer-actions {
+  margin-top: 14px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.composer button {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
   color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 120ms ease, opacity 120ms ease;
 }
 
-.App-link {
-  color: #61dafb;
+.composer button:hover:not(:disabled),
+.composer button:focus-visible:not(:disabled) {
+  transform: translateY(-1px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.composer button:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
+.error-message {
+  margin: 12px 4px 0;
+  color: #fca5a5;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 900px) {
+  .app-shell {
+    padding: 18px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .chat-app {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-panel,
+  .conversation-panel {
+    border-radius: 24px;
+  }
+
+  .hero-panel {
+    padding: 28px;
   }
 }

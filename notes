@@ -1,0 +1,16 @@
+backend
+1. Installed "pip install fastapi uvicorn google-generativeai python-dotenv" 
+
+
+
+
+
+
+
+
+
+
+
+
+frontend
+1. create a react folder named frontend "npx create-react-app frontend"

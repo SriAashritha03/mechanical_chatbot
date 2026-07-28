@@ -4,11 +4,6 @@ import './App.css';
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
 function App() {
-  // const starterSuggestions = [
-  //   'What is OEE?',
-  //   'Explain the difference between hydraulic and pneumatic systems.',
-  //   'What causes bearing failure?'
-  // ];
   const [question, setQuestion] = useState('');
   const [messages, setMessages] = useState([
     {
@@ -75,18 +70,6 @@ function App() {
             Use the chat box below to ask about manufacturing, CNC, PLCs,
             hydraulics, pneumatics, bearings, gears, and maintenance.
           </p>
-          {/* <div className="suggestion-row">
-            {starterSuggestions.map((suggestion) => (
-              <button
-                key={suggestion}
-                type="button"
-                className="suggestion-chip"
-                onClick={() => setQuestion(suggestion)}
-              >
-                {suggestion}
-              </button>
-            ))}
-          </div> */}
         </section>
 
         <section className="conversation-panel">

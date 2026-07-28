@@ -1,6 +1,6 @@
 backend
 1. Installed "pip install fastapi uvicorn google-generativeai python-dotenv" 
-
+2. python -m uvicorn main:app --reload --> To run the backend
 
 
 

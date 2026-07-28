@@ -4,11 +4,11 @@ import './App.css';
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
 function App() {
-  const starterSuggestions = [
-    'What is OEE?',
-    'Explain the difference between hydraulic and pneumatic systems.',
-    'What causes bearing failure?'
-  ];
+  // const starterSuggestions = [
+  //   'What is OEE?',
+  //   'Explain the difference between hydraulic and pneumatic systems.',
+  //   'What causes bearing failure?'
+  // ];
   const [question, setQuestion] = useState('');
   const [messages, setMessages] = useState([
     {
@@ -69,13 +69,13 @@ function App() {
     <div className="app-shell">
       <main className="chat-app">
         <section className="hero-panel">
-          <p className="eyebrow">Mechanical Engineering Assistant</p>
-          <h1>Simple frontend for your backend chatbot</h1>
+          <p className="eyebrow"> <h2>Mechanical Engineering Assistant</h2></p>
+          {/* <h1>Simple frontend for your backend chatbot</h1> */}
           <p className="hero-copy">
             Use the chat box below to ask about manufacturing, CNC, PLCs,
             hydraulics, pneumatics, bearings, gears, and maintenance.
           </p>
-          <div className="suggestion-row">
+          {/* <div className="suggestion-row">
             {starterSuggestions.map((suggestion) => (
               <button
                 key={suggestion}
@@ -86,7 +86,7 @@ function App() {
                 {suggestion}
               </button>
             ))}
-          </div>
+          </div> */}
         </section>
 
         <section className="conversation-panel">
